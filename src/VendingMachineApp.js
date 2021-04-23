@@ -8,6 +8,34 @@ function AnswerView() {
             <p className="problem-text">problem?</p>
             </div>
         </div>
+    );
+}
+
+function Drinks(props) {
+    return(
+        <div>
+            <img className="drink-image" src={props.imageName}/>
+            <div className="price-container">
+                <p className="drink-price">1,000</p>
+            </div>
+        </div>
+    );
+}
+
+function DrinkView() {
+    return(
+        <div className="drink-container">
+            <span className="drink-shower-container">
+                <Drinks imageName="/res/drink0.png"/>
+                <Drinks imageName="/res/drink1.png"/>
+                <Drinks imageName="/res/drink2.png"/>
+                <Drinks imageName="/res/drink3.png"/>
+            </span>
+            <span className="button-space-container">
+                <div className="button-space"></div>
+                <div className="bill-space"></div>
+            </span>
+        </div>
     )
 }
 
@@ -18,7 +46,7 @@ function VendingMachine() {
             <span className="vending-machine-body">
                 <div className="vending-machine-head"/>
                 <AnswerView />
-
+                <DrinkView />
             </span>
             <span className="vending-machine-foot-container">
                 <VendingMachineFoot />
@@ -35,10 +63,17 @@ function VendingMachineFoot() {
     )
 }
 
+function Copyright() {
+    return(
+        <p className="copyright">ⓒCopyright 귀여운꼬마기린</p>
+    )
+}
+
 function VendingMachineApp() {
     return (
         <div className="main-container">
             <VendingMachine />
+            <Copyright />
         </div>
     );
 }
