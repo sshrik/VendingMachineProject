@@ -1,0 +1,63 @@
+:root {
+    --mint-color: #6CC0BA;
+    --red-color: #D96459;
+    --brown-color: #8C4646;
+    --black-color: #1E1E1E;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+.main-container {
+    background-color: var(--mint-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.vending-machine-container {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 620px;
+}
+
+.vending-machine-body {
+    background-color: var(--red-color);
+    width: 100%;
+    height: 96.6%;
+    border-radius: 20px;
+}
+
+.vending-machine-head {
+    background-color: var(--brown-color);
+    width: 100%;
+    height: 6.6%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.vending-machine-foot-container{
+    display: inline-flex;
+    flex-direction: row;
+    margin: 0 auto;
+    justify-content: space-between;
+    width: 90%;
+    height: 3.2%;
+}
+
+.vending-machine-foot {
+    background-color: var(--black-color);
+    width: 13.88%;
+    height: 100%;
+    border-radius: 2px;
+}
