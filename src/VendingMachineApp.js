@@ -3,7 +3,10 @@ import './VendingMachine.css'
 function AnswerView() {
     return(
         <div className="problem-container">
-            <p>What`s your problem?</p>
+            <div className="center-class">
+            <p className="problem-text">What`s your</p>
+            <p className="problem-text">problem?</p>
+            </div>
         </div>
     )
 }
