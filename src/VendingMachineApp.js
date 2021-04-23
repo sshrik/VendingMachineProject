@@ -1,3 +1,6 @@
+import { render } from '@testing-library/react';
+import React, {useState} from 'react';
+import reactDom from 'react-dom';
 import './VendingMachine.css'
 
 function AnswerView() {
@@ -22,25 +25,80 @@ function Drinks(props) {
     );
 }
 
-function DrinkView() {
+class DrinkView extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            buttonClass0: "orange-button",
+            buttonClass1: "mint-button"
+        }
+    }
+
+    componentDidMount() {
+        setInterval(() => {
+            if(this.state.buttonClass0 == "orange-button") {
+                this.setState({
+                    buttonClass0: "mint-button",
+                    buttonClass1: "orange-button"
+                });
+            }
+            else {
+                this.setState({
+                    buttonClass0: "orange-button",
+                    buttonClass1: "mint-button"
+                });
+            }
+        }, 600);
+    }
+
+    render() {
+        return(
+            <div className="drink-container">
+                <span className="drink-shower-container">
+                    <Drinks imageName="/res/drink0.png"/>
+                    <Drinks imageName="/res/drink1.png"/>
+                    <Drinks imageName="/res/drink2.png"/>
+                    <Drinks imageName="/res/drink3.png"/>
+                </span>
+                <span className="button-space-container">
+                    <div className="button-space">
+                        <div className="button-row-space">
+                            <BlinkButton blinkButtonClass={this.state.buttonClass0}/>
+                            <BlinkButton blinkButtonClass={this.state.buttonClass1}/>
+                            <BlinkButton blinkButtonClass={this.state.buttonClass0}/>
+                        </div>
+                        <div className="button-row-space">
+                            <BlinkButton blinkButtonClass={this.state.buttonClass1}/>
+                            <BlinkButton blinkButtonClass={this.state.buttonClass0}/>
+                            <BlinkButton blinkButtonClass={this.state.buttonClass1}/>
+                        </div>
+                        <div className="button-row-space">
+                            <BlinkButton blinkButtonClass={this.state.buttonClass0}/>
+                            <BlinkButton blinkButtonClass={this.state.buttonClass1}/>
+                            <BlinkButton blinkButtonClass={this.state.buttonClass0}/>
+                        </div>
+                        <div className="button-row-space">
+                            <BlinkButton blinkButtonClass={this.state.buttonClass1}/>
+                            <BlinkButton blinkButtonClass={this.state.buttonClass0}/>
+                            <BlinkButton blinkButtonClass={this.state.buttonClass1}/>
+                        </div>
+                    </div>
+                    <div className="bill-space"></div>
+                </span>
+            </div>
+        );
+    }
+}
+
+function BlinkButton(props) {
     return(
-        <div className="drink-container">
-            <span className="drink-shower-container">
-                <Drinks imageName="/res/drink0.png"/>
-                <Drinks imageName="/res/drink1.png"/>
-                <Drinks imageName="/res/drink2.png"/>
-                <Drinks imageName="/res/drink3.png"/>
-            </span>
-            <span className="button-space-container">
-                <div className="button-space"></div>
-                <div className="bill-space"></div>
-            </span>
+        <div className={props.blinkButtonClass}>
         </div>
-    )
+    );
 }
 
 function VendingMachine() {
-
     return(
         <div className="vending-machine-container">
             <span className="vending-machine-body">
