@@ -1,8 +1,9 @@
 :root {
-    --mint-color: #6CC0BA;
-    --red-color: #D96459;
-    --orange-color: #F6D394;
-    --brown-color: #8C4646;
+    --mint-color: #6cc0ba;
+    --wmint-color: #b4f3dc;
+    --red-color: #e65447;
+    --orange-color: #ffd17c;
+    --brown-color: #8c4646;
     --black-color: #1E1E1E;
     --white-color: #EEEEEE;
 }
@@ -108,7 +109,7 @@ body {
 
 .drink-price {
     font-family: 'Ubuntu';
-    font-size: 6px;
+    font-size: 4px;
     color: var(--white-color)
 }
 
@@ -140,7 +141,7 @@ body {
 }
 
 .mint-button {
-    background-color: var(--mint-color);
+    background-color: var(--wmint-color);
     width: 12px;
     height: 12px;
     border-radius: 6px;
