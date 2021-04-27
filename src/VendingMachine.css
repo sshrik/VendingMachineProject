@@ -201,6 +201,16 @@ body {
     transform: translate(120px, -30px);
 }
 
+.random-drink-container {
+    position: absolute;
+}
+
+.random-drink-img {
+    width: 30px;
+    height: 50px;
+    object-fit: cover;
+}
+
 .arrow-image {
     position: absolute;
     left: -45px;

@@ -30,7 +30,8 @@ class DrinkView extends React.Component {
         this.state = {
             buttonClass0: "orange-button",
             buttonClass1: "mint-button",
-            visible: "not-visible"
+            visible: "not-visible",
+            randomDrink: null
         }
     }
 
@@ -54,6 +55,10 @@ class DrinkView extends React.Component {
         }, 3000);
     }
 
+    genRandomDrink() {
+        this.setState({randomDrink: <RandomDrink />})
+    }
+
     render() {
         return(
             <div className="drink-container">
@@ -65,7 +70,12 @@ class DrinkView extends React.Component {
                 </span>
                 <span className="button-space-container">
                     <ArrowNotifier visibleClass={this.state.visible} />
-                    <div className="button-space">
+                    {this.state.randomDrink}
+                    <div className="button-space" 
+                        onClick={() => {
+                            this.genRandomDrink();
+                        }}
+                    >
                         <div className="button-row-space">
                             <BlinkButton blinkButtonClass={this.state.buttonClass0}/>
                             <BlinkButton blinkButtonClass={this.state.buttonClass1}/>
@@ -153,6 +163,27 @@ function ArrowNotifier(props)    {
         </div>
     );
 }
+
+class RandomDrink extends React.Component {
+    constructor(props) {
+        super(props);
+        let imageList = ["/res/drink0.png", "/res/drink1.png", "/res/drink2.png", "/res/drink3.png"];
+        let randomIndex = Math.floor(Math.random() * 4);
+        // random index 따라 생성되는 위치를 다르게 하고싶음.
+        this.state = {
+            imageName: imageList[randomIndex]
+        }
+    }
+
+    render() {
+        return(
+            <div className="random-drink-container">
+                <img className="random-drink-img" src={this.state.imageName} />
+            </div>
+        )
+    }
+}
+
 
 function VendingMachineApp() {
     return (
