@@ -1,6 +1,4 @@
-import { render } from '@testing-library/react';
 import React, {useState} from 'react';
-import reactDom from 'react-dom';
 import './VendingMachine.css'
 
 function AnswerView() {
@@ -49,7 +47,7 @@ class DrinkView extends React.Component {
                     buttonClass1: "mint-button"
                 });
             }
-        }, 600);
+        }, 300);
     }
 
     render() {
@@ -98,6 +96,20 @@ function BlinkButton(props) {
     );
 }
 
+class DrinkOutView extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return(
+            <div className="drink-out-container">
+
+            </div>
+        )
+    }
+}
+
 function VendingMachine() {
     return(
         <div className="vending-machine-container">
@@ -105,6 +117,8 @@ function VendingMachine() {
                 <div className="vending-machine-head"/>
                 <AnswerView />
                 <DrinkView />
+                <div className="empty-middle-container"/>
+                <DrinkOutView />
             </span>
             <span className="vending-machine-foot-container">
                 <VendingMachineFoot />

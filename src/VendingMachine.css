@@ -1,7 +1,7 @@
 :root {
-    --mint-color: #6cc0ba;
+    --mint-color: #57c0b9;
     --wmint-color: #b4f3dc;
-    --red-color: #e65447;
+    --red-color: #e25a4d;
     --orange-color: #ffd17c;
     --brown-color: #8c4646;
     --black-color: #1E1E1E;
@@ -152,6 +152,21 @@ body {
     margin-top: 6px;
     width: 100%;
     height: 6.41%
+}
+
+.empty-middle-container {
+    width: 100%;
+    height: 19.16%;
+}
+
+.drink-out-container {
+    background-color: var(--brown-color);
+    width: calc(100% - 60PX);
+    border-radius: 2px;
+    height: 6.66%;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 25px;
 }
 
 .vending-machine-foot-container{
