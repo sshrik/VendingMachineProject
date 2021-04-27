@@ -125,6 +125,10 @@ body {
     height: 82.05%
 }
 
+.button-space:hover {
+    cursor: pointer;
+}
+
 .button-row-space {
     display: flex;
     flex-direction: row;
