@@ -29,7 +29,8 @@ class DrinkView extends React.Component {
 
         this.state = {
             buttonClass0: "orange-button",
-            buttonClass1: "mint-button"
+            buttonClass1: "mint-button",
+            visible: "not-visible"
         }
     }
 
@@ -48,6 +49,9 @@ class DrinkView extends React.Component {
                 });
             }
         }, 300);
+        setInterval(() => {
+            this.setState({visible: "visible"})
+        }, 3000);
     }
 
     render() {
@@ -60,7 +64,7 @@ class DrinkView extends React.Component {
                     <Drinks imageName="/res/drink3.png"/>
                 </span>
                 <span className="button-space-container">
-                    <ArrowNotifier />
+                    <ArrowNotifier visibleClass={this.state.visible} />
                     <div className="button-space">
                         <div className="button-row-space">
                             <BlinkButton blinkButtonClass={this.state.buttonClass0}/>
@@ -141,9 +145,9 @@ function Copyright() {
     )
 }
 
-function ArrowNotifier()    {
+function ArrowNotifier(props)    {
     return  (
-        <div className="arrow-container">
+        <div className={props.visibleClass}>
             <img className="arrow-image" src="res/arrow.png"/>
             <p className="arrow-text">Click Here!</p>
         </div>

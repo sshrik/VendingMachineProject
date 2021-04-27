@@ -189,7 +189,14 @@ body {
     border-radius: 2px;
 }
 
-.arrow-container {
+.not-visible{
+    visibility: hidden;
+    position: absolute;
+    transform: translate(120px, -30px);
+}
+
+.visible {
+    visibility: visible;
     position: absolute;
     transform: translate(120px, -30px);
 }
