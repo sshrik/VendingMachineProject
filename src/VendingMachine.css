@@ -189,6 +189,21 @@ body {
     border-radius: 2px;
 }
 
+.arrow-container {
+    position: absolute;
+    transform: translate(120px, -30px);
+}
+
+.arrow-image {
+    position: absolute;
+    left: -45px;
+    top: 10px;
+}
+
+.arrow-text {
+    font-family: 'Ubuntu';
+    font-size: 24px;
+}
 
 @font-face {
     font-family: "nanumR";

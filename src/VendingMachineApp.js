@@ -60,6 +60,7 @@ class DrinkView extends React.Component {
                     <Drinks imageName="/res/drink3.png"/>
                 </span>
                 <span className="button-space-container">
+                    <ArrowNotifier />
                     <div className="button-space">
                         <div className="button-row-space">
                             <BlinkButton blinkButtonClass={this.state.buttonClass0}/>
@@ -104,7 +105,6 @@ class DrinkOutView extends React.Component {
     render() {
         return(
             <div className="drink-out-container">
-
             </div>
         )
     }
@@ -139,6 +139,15 @@ function Copyright() {
     return(
         <p className="copyright">ⓒCopyright 귀여운꼬마기린</p>
     )
+}
+
+function ArrowNotifier()    {
+    return  (
+        <div className="arrow-container">
+            <img className="arrow-image" src="res/arrow.png"/>
+            <p className="arrow-text">Click Here!</p>
+        </div>
+    );
 }
 
 function VendingMachineApp() {
