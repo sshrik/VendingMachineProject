@@ -61,44 +61,47 @@ class DrinkView extends React.Component {
 
     render() {
         return(
-            <div className="drink-container">
-                <span className="drink-shower-container">
-                    <Drinks imageName="/res/drink0.png"/>
-                    <Drinks imageName="/res/drink1.png"/>
-                    <Drinks imageName="/res/drink2.png"/>
-                    <Drinks imageName="/res/drink3.png"/>
-                </span>
-                <span className="button-space-container">
-                    <ArrowNotifier visibleClass={this.state.visible} />
-                    {this.state.randomDrink}
-                    <div className="button-space" 
-                        onClick={() => {
-                            this.genRandomDrink();
-                        }}
-                    >
-                        <div className="button-row-space">
-                            <BlinkButton blinkButtonClass={this.state.buttonClass0}/>
-                            <BlinkButton blinkButtonClass={this.state.buttonClass1}/>
-                            <BlinkButton blinkButtonClass={this.state.buttonClass0}/>
+            <div className="drink-view-container">
+                <div className="drink-container">
+                    <span className="drink-shower-container">
+                        <Drinks imageName="/res/drink0.png"/>
+                        <Drinks imageName="/res/drink1.png"/>
+                        <Drinks imageName="/res/drink2.png"/>
+                        <Drinks imageName="/res/drink3.png"/>
+                    </span>
+                    <span className="button-space-container">
+                        <ArrowNotifier visibleClass={this.state.visible} />
+                        <div className="button-space" 
+                            onClick={() => {
+                                this.genRandomDrink();
+                            }}
+                        >
+                            <div className="button-row-space">
+                                <BlinkButton blinkButtonClass={this.state.buttonClass0}/>
+                                <BlinkButton blinkButtonClass={this.state.buttonClass1}/>
+                                <BlinkButton blinkButtonClass={this.state.buttonClass0}/>
+                            </div>
+                            <div className="button-row-space">
+                                <BlinkButton blinkButtonClass={this.state.buttonClass1}/>
+                                <BlinkButton blinkButtonClass={this.state.buttonClass0}/>
+                                <BlinkButton blinkButtonClass={this.state.buttonClass1}/>
+                            </div>
+                            <div className="button-row-space">
+                                <BlinkButton blinkButtonClass={this.state.buttonClass0}/>
+                                <BlinkButton blinkButtonClass={this.state.buttonClass1}/>
+                                <BlinkButton blinkButtonClass={this.state.buttonClass0}/>
+                            </div>
+                            <div className="button-row-space">
+                                <BlinkButton blinkButtonClass={this.state.buttonClass1}/>
+                                <BlinkButton blinkButtonClass={this.state.buttonClass0}/>
+                                <BlinkButton blinkButtonClass={this.state.buttonClass1}/>
+                            </div>
                         </div>
-                        <div className="button-row-space">
-                            <BlinkButton blinkButtonClass={this.state.buttonClass1}/>
-                            <BlinkButton blinkButtonClass={this.state.buttonClass0}/>
-                            <BlinkButton blinkButtonClass={this.state.buttonClass1}/>
-                        </div>
-                        <div className="button-row-space">
-                            <BlinkButton blinkButtonClass={this.state.buttonClass0}/>
-                            <BlinkButton blinkButtonClass={this.state.buttonClass1}/>
-                            <BlinkButton blinkButtonClass={this.state.buttonClass0}/>
-                        </div>
-                        <div className="button-row-space">
-                            <BlinkButton blinkButtonClass={this.state.buttonClass1}/>
-                            <BlinkButton blinkButtonClass={this.state.buttonClass0}/>
-                            <BlinkButton blinkButtonClass={this.state.buttonClass1}/>
-                        </div>
-                    </div>
-                    <div className="bill-space"></div>
-                </span>
+                        <div className="bill-space"></div>
+                    </span>
+                </div>
+                <div className="empty-middle-container"/>
+                <DrinkOutView randomDrink={this.state.randomDrink}/>
             </div>
         );
     }
@@ -119,6 +122,7 @@ class DrinkOutView extends React.Component {
     render() {
         return(
             <div className="drink-out-container">
+                {this.props.randomDrink}
             </div>
         )
     }
@@ -131,8 +135,6 @@ function VendingMachine() {
                 <div className="vending-machine-head"/>
                 <AnswerView />
                 <DrinkView />
-                <div className="empty-middle-container"/>
-                <DrinkOutView />
             </span>
             <span className="vending-machine-foot-container">
                 <VendingMachineFoot />

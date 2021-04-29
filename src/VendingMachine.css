@@ -72,12 +72,17 @@ body {
     font-size: 32px;
 }
 
+.drink-view-container {
+    width: 100%;
+    height: 40.08%;
+}
+
 .drink-container{
     display: inline-flex;
     margin-top: 40px;
     margin-left: 30px;
     width: calc(100% - 54px);
-    height: 14.51%;
+    height: 36.73%;
 }
 
 .drink-shower-container {
@@ -160,14 +165,14 @@ body {
 
 .empty-middle-container {
     width: 100%;
-    height: 19.16%;
+    height: 46.95%;
 }
 
 .drink-out-container {
     background-color: var(--brown-color);
     width: calc(100% - 60PX);
     border-radius: 2px;
-    height: 6.66%;
+    height: 16.32%;
     margin-left: 30px;
     margin-right: 30px;
     margin-bottom: 25px;
