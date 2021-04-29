@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {Motion, spring} from 'react-motion';
 import './VendingMachine.css';
 
 function AnswerView() {
@@ -31,7 +32,7 @@ class DrinkView extends React.Component {
             buttonClass0: "orange-button",
             buttonClass1: "mint-button",
             visible: "not-visible",
-            randomDrink: null
+            randomDrink: <div></div>
         }
     }
 
@@ -50,6 +51,7 @@ class DrinkView extends React.Component {
                 });
             }
         }, 300);
+
         setInterval(() => {
             this.setState({visible: "visible"})
         }, 3000);
@@ -166,23 +168,58 @@ function ArrowNotifier(props)    {
     );
 }
 
+
+const locatedStyle = (x, y) => ({
+    left: x,
+    top: y
+});
+
 class RandomDrink extends React.Component {
     constructor(props) {
         super(props);
         let imageList = ["/res/drink0.png", "/res/drink1.png", "/res/drink2.png", "/res/drink3.png"];
         let randomIndex = Math.floor(Math.random() * 4);
-        // random index 따라 생성되는 위치를 다르게 하고싶음.
+        let x = Math.floor(Math.random() * 300);
         this.state = {
-            imageName: imageList[randomIndex]
+            imageName: imageList[randomIndex],
+            x: x,
+            y: -40,
+            animationStep: 0
         }
     }
 
     render() {
-        return(
-            <div className="random-drink-container">
-                <img className="random-drink-img" src={this.state.imageName} />
-            </div>
-        )
+        if(this.state.animationStep == 0) {
+            return(
+                <Motion 
+                    defaultStyle={Object.assign({}, {width: 35, height: 50}, locatedStyle(this.state.x, this.state.y))} 
+                    style={Object.assign({}, {width: 35, height: 50}, locatedStyle(this.state.x, spring(-6)))}
+                    onRest={() => {
+                        this.setState({animationStep: 1, y: -6})
+                    }}
+                >
+                    {(interpolatingStyle) => (
+                        <div style={Object.assign({}, interpolatingStyle, {position: 'relative'})}>
+                            <img className="random-drink-img" src={this.state.imageName} />
+                        </div>
+                    )}
+                </Motion>
+            )
+        }
+        else {
+            return(
+                <Motion 
+                    defaultStyle={Object.assign({}, {width: 35, height: 50}, locatedStyle(this.state.x, this.state.y))} 
+                    style={Object.assign({}, {width: spring(350), height: spring(500)}, locatedStyle(spring(this.state.x - 350), spring(this.state.y - 500)))}
+                >
+                    {(interpolatingStyle) => (
+                        <div style={Object.assign({}, interpolatingStyle, {position: 'relative'})}>
+                            <img className="random-drink-img" src={this.state.imageName} />
+                        </div>
+                    )}
+                </Motion>
+            );
+        }
     }
 }
 
