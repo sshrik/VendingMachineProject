@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import './VendingMachine.css'
+import './VendingMachine.css';
 
 function AnswerView() {
     return(
@@ -183,7 +183,6 @@ class RandomDrink extends React.Component {
         )
     }
 }
-
 
 function VendingMachineApp() {
     return (
